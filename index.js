@@ -20,11 +20,17 @@ client.on('ready', ()=>{
     console.log('your bot is ready')
 })
 
+client.on('interactionCreate', interaction => {
+	console.log(interaction);
+});
+
 client.on('messageCreate', msg=>{
-    if (msg.content == 'หิว'){
-        msg.reply('สั่งข้าวดิ')
+    let foods = ['กะเพราหมูสับ','หมูกระเทียม','ไข่เจียวหมูสับ','มาม่าผัด','ส้มตำ','พิซซ่า'];
+   
+    if (msg.content == 'กินไรดี'){
+        msg.reply(foods[random_num()])
     }
     console.log(msg)
-})
+});
 
 client.login(process.env.TOKEN)
